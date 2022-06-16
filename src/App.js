@@ -111,6 +111,7 @@ class App extends React.Component {
                 removeFromCart={this.removeFromCart}
                 createOrder={this.createOrder}
               />
+              
             </div>
 
           </div>
