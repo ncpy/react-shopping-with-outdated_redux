@@ -86,7 +86,7 @@ class Cart extends Component {
                                             <li>
                                                 <label>Email:</label>
                                                 <input 
-                                                    name='email'
+                                                    name="email" 
                                                     type="email" 
                                                     required 
                                                     onChange={this.handleInput}>
@@ -95,7 +95,7 @@ class Cart extends Component {
                                             <li>
                                                 <label>Name:</label>
                                                 <input 
-                                                    name='name'
+                                                    name="name"
                                                     type="text" 
                                                     required 
                                                     onChange={this.handleInput}>
@@ -104,7 +104,7 @@ class Cart extends Component {
                                             <li>
                                                 <label>Address:</label>
                                                 <input 
-                                                    name='address'
+                                                    name="address"
                                                     type="text" 
                                                     required 
                                                     onChange={this.handleInput}>
