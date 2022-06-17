@@ -3,7 +3,7 @@ import formatCurrency from "../util";
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
 import Modal from 'react-modal';
-import { connect } from "mongoose";
+import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
 
 class Products extends Component {
@@ -32,9 +32,10 @@ class Products extends Component {
             <div>
                 <Fade bottom cascade>
                     {!this.props.products 
-                        ? <div>Loading...</div>
-                        : <ul className="products">
+                        ? (<div>Loading...</div>)
+                        : (<ul className="products">
                             {this.props.products.map(product => (
+                                console.log("pro "+product),
                                 <li key={product._id}>
                                     <div className="product">
                                         <a href={"#" + product._id}>
@@ -51,7 +52,7 @@ class Products extends Component {
                                 </li>
                             ))}
                             
-                          </ul>
+                          </ul>)
                     }
                 </Fade>
                 {product && (
@@ -97,4 +98,7 @@ class Products extends Component {
     }
 }
 
-export default connect((state) => ({products: state.products.items}), {fetchProducts,})(Products)
+
+export default connect(
+    (state) => ({products: state.products.items}), 
+    {fetchProducts,})(Products)
