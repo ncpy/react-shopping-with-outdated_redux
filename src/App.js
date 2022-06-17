@@ -16,8 +16,8 @@ class App extends React.Component {
       cartItems: localStorage.getItem("cartItems")
                   ? JSON.parse(localStorage.getItem("cartItems"))
                   : [],
-      size: "",
-      sort: "",
+      /*size: "",
+      sort: "",*/
     }
   }
 
@@ -52,7 +52,7 @@ class App extends React.Component {
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
   }
 
-  sortProducts = (event) => {
+  /*sortProducts = (event) => {
     const sort = event.target.value
     this.setState((state) => ({
       sort: sort,
@@ -70,9 +70,9 @@ class App extends React.Component {
           : -1
       ))
     }))
-  }
+  }*/
 
-  filterProducts = (event) => {
+  /*filterProducts = (event) => {
     if (event.target.value === "") {
       this.setState({
         size: event.target.value, 
@@ -83,7 +83,7 @@ class App extends React.Component {
         products: data.products.filter(product => product.availableSizes.indexOf(event.target.value)>=0)
       })
     }
-  }
+  }*/
 
   render() {
     return (
@@ -98,13 +98,13 @@ class App extends React.Component {
           <div className='content'>
             <div className='main'>
               <Filter 
-                count={this.state.products.length}
+                /*count={this.state.products.length}
                 size={this.state.size}
                 sort={this.state.sort}
                 sortProducts={this.sortProducts}
-                filterProducts={this.filterProducts}
+                filterProducts={this.filterProducts}*/
                 />
-              <Products products={this.state.products}
+              <Products /*products={this.state.products}*/
                 addToCart={this.addToCart}
                 />
             </div>
