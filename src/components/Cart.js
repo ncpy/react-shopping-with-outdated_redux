@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import formatCurrency from '../util';
-import Products from './Products';
 import Fade from 'react-reveal/Fade'
+import { connect } from 'react-redux';
+import { removeFromCart } from "../actions/cartActions";
 
 class Cart extends Component {
     constructor(props) {
@@ -30,7 +31,8 @@ class Cart extends Component {
     }
 
     render() {
-        const {cartItems} = this.props
+        const { cartItems } = this.props
+        console.log("CARTITEMS: "+cartItems)
         return (
             <div>
                 {cartItems.length === 0
@@ -126,4 +128,9 @@ class Cart extends Component {
     }
 }
 
-export default Cart;
+export default connect(
+    state => ({cartItems: state.cart.cartItems}),
+    {
+        removeFromCart
+    }
+)(Cart);

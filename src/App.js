@@ -9,23 +9,23 @@ import { Provider } from 'react-redux';
 
 //function App() { // change to CLASS
 class App extends React.Component {
-  constructor() {
+  /*constructor() {
     super()
     this.state = {
       products: data.products,
       cartItems: localStorage.getItem("cartItems")
                   ? JSON.parse(localStorage.getItem("cartItems"))
                   : [],
-      /*size: "",
-      sort: "",*/
+      size: "",
+      sort: "",
     }
   }
 
   createOrder = (order) => {
     alert("Need to save order for " + order.name)
-  }
+  }*/
 
-  removeFromCart = (product) => {
+  /*removeFromCart = (product) => {
     const cartItems = this.state.cartItems.slice()
     
     this.setState({
@@ -50,7 +50,7 @@ class App extends React.Component {
 
     this.setState({cartItems})
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
-  }
+  }*/
 
   /*sortProducts = (event) => {
     const sort = event.target.value
@@ -105,15 +105,15 @@ class App extends React.Component {
                 filterProducts={this.filterProducts}*/
                 />
               <Products /*products={this.state.products}*/
-                addToCart={this.addToCart}
+                /*addToCart={this.addToCart}*/
                 />
             </div>
 
             <div className='sidebar'>
               <Cart 
-                cartItems={this.state.cartItems} 
+                /*cartItems={this.state.cartItems} 
                 removeFromCart={this.removeFromCart}
-                createOrder={this.createOrder}
+                createOrder={this.createOrder}*/
               />
               
             </div>
