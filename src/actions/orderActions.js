@@ -1,22 +1,40 @@
-import { CLEAR_CART, CLEAR_ORDER, CREATE_ORDER } from "../type"
+import { CLEAR_CART, CLEAR_ORDER, CREATE_ORDER, FETCH_ORDERS } from "../type"
 
 
-export const createOrder = (order) => async (dispatch) => {
-    fetch("api/orders", {
+export const createOrder = (order) => (dispatch) => {
+    fetch("/api/orders", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(order)
-    }).then(res => res.json())
-    .then(data => {
-        dispatch({type: CREATE_ORDER, payload: data})
+        body: JSON.stringify(order),
+    }).then((res) => res.json())
+    .then((data) => {
+        dispatch({
+            type: CREATE_ORDER, 
+            payload: data
+        })
         localStorage.clear("cartItems")
         dispatch({type: CLEAR_CART})
     })
-    
 }
 
 export const clearOrder = () => (dispatch) => {
     dispatch({type: CLEAR_ORDER})
+}
+
+export const fetchOrders = () => (dispatch) => {
+    /*const res = await fetch("/api/orders")
+    const data = await res.json()
+    dispatch({
+        type: FETCH_ORDERS,
+        payload: data
+    })*/  // aşağıdaki gibi bir bağlamda yazılabilir;
+
+    fetch("/api/orders").then((res) => res.json()).then((data) => {
+        dispatch({
+            type: FETCH_ORDERS,
+            payload: data
+        })
+    })
 }

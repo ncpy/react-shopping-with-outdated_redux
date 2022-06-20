@@ -16,7 +16,6 @@ class Cart extends Component {
             address: "",
             showCheckout: false }
     }
-
     
     handleInput = (e) => {
         this.setState({ [e.target.name] : e.target.value })
@@ -31,7 +30,7 @@ class Cart extends Component {
             cartItems: this.props.cartItems,
             total: this.props.cartItems.reduce((a,c) => a + c.price * c.count, 0)
         }
-        console.log("order123: "+order)
+        console.log("order123: "+order.name)
         this.props.createOrder(order)
     }
 
